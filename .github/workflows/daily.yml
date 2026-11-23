@@ -1,0 +1,31 @@
+```yaml
+name: Daily GitHub Activity
+
+on:
+  schedule:
+    - cron: '30 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  daily-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update activity
+        run: |
+          echo "Daily update: $(date -u)" >> activity.txt
+
+      - name: Commit changes
+        run: |
+          git config user.name "sanghamitra2005"
+          git config user.email "YOUR_VERIFIED_GITHUB_EMAIL"
+          git add activity.txt
+          git commit -m "Daily activity update"
+          git push
+```
