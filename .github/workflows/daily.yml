@@ -1,4 +1,3 @@
-```yaml
 name: Daily GitHub Activity
 
 on:
@@ -21,11 +20,13 @@ jobs:
         run: |
           echo "Daily update: $(date -u)" >> activity.txt
 
-      - name: Commit changes
+      - name: Configure Git
         run: |
           git config user.name "sanghamitra2005"
-          git config user.email "sanghamitrajena713@gmail.com"
+          git config user.email "YOUR_VERIFIED_GITHUB_EMAIL"
+
+      - name: Commit and push
+        run: |
           git add activity.txt
           git commit -m "Daily activity update"
-          git push
-```
+          git push origin main
