@@ -1,0 +1,12 @@
+import datetime
+import os
+import subprocess
+
+today = datetime.date.today()
+
+with open("activity.txt", "a") as file:
+    file.write(f"Daily update: {today}\n")
+
+subprocess.run(["git", "add", "."])
+subprocess.run(["git", "commit", "-m", f"Daily update {today}"])
+subprocess.run(["git", "push", "origin", "main"])
