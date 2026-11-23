@@ -24,7 +24,7 @@ jobs:
       - name: Commit changes
         run: |
           git config user.name "sanghamitra2005"
-          git config user.email "YOUR_VERIFIED_GITHUB_EMAIL"
+          git config user.email "sanghamitrajena713@gmail.com"
           git add activity.txt
           git commit -m "Daily activity update"
           git push
